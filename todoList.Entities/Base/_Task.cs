@@ -13,6 +13,7 @@ namespace todoList.Entities.Base
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         [Required]
+        
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime? DueDate { get; set; }
@@ -37,6 +38,7 @@ namespace todoList.Entities.Base
         public int? CreatedById { get; set; }
         public int? StatusId { get; set; }
         public int? PriorityId { get; set; }
+
         public bool IsActive { get; set; }
 
 

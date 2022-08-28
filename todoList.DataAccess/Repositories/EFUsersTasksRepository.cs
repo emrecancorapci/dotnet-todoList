@@ -28,7 +28,8 @@ namespace todoList.DataAccess.Repositories
             var users = new List<User>();
             var userTasks = await context.UsersTasks.ToListAsync();
 
-            foreach (var userTask in userTasks.Where(userTask => userTask.TaskId == taskId))
+            foreach (var userTask in userTasks
+                         .Where(userTask => userTask.TaskId == taskId))
             {
                 var task = await context.Users.FindAsync(userTask.UserId);
                 users.Add(task);
@@ -65,7 +66,7 @@ namespace todoList.DataAccess.Repositories
             var entity = await context.UsersTasks.AddAsync(ut);
             await context.SaveChangesAsync();
 
-            return entity != null ? true : false;
+            return entity != null;
         }
 
         public async Task<int> DeleteAsync(int userId, int taskId)

@@ -12,14 +12,12 @@ namespace todoList.Business.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
-        private readonly IUsersTasksRepository usersTasksRepository;
         private readonly IMapper mapper;
         public UserService(IUserRepository userRepository,
             IUsersTasksRepository usersTasksRepository, 
             IMapper mapper)
         {
             this.userRepository = userRepository;
-            this.usersTasksRepository = usersTasksRepository;
             this.mapper = mapper;
         }
 

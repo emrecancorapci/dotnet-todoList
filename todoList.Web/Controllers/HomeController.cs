@@ -22,7 +22,9 @@ namespace todoList.Web.Controllers
             if (!User.Identity.IsAuthenticated) return View();
 
             var username = User.Identity.Name;
+            
             _logger.LogInformation($"{DateTime.UtcNow.ToLongTimeString()} | {username} entered the site.");
+            
             return RedirectToAction("Index", "User");
         }
 

@@ -16,7 +16,6 @@ using todoList.Business.Services;
 using todoList.DataAccess.Data;
 using todoList.DataAccess.Repositories;
 using todoList.DataAccess.Repositories.Interfaces;
-using todoList.Entities.Base;
 
 namespace todoList.Web
 {

@@ -14,8 +14,10 @@ namespace todoList.DataAccess.Repositories
         private readonly TodoListDbContext context;
         public EFTaskRepository(TodoListDbContext context) => this.context = context;
 
-        public async Task<IList<_Task>> GetAllAsync() => await context.Tasks.ToListAsync();
-        public async Task<_Task> GetAsync(int id) => await context.Tasks.FindAsync(id);
+        public async Task<IList<_Task>> GetAllAsync()
+            => await context.Tasks.ToListAsync();
+        public async Task<_Task> GetAsync(int id)
+            => await context.Tasks.FindAsync(id);
         public async Task<int> Add(_Task task)
         {
             task.CreatedDate = DateTime.Now;
@@ -42,7 +44,8 @@ namespace todoList.DataAccess.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task<bool> IsExist(int id) => await context.Tasks.AnyAsync(task => task.Id == id);
+        public async Task<bool> IsExist(int id)
+            => await context.Tasks.AnyAsync(task => task.Id == id);
 
         public async Task<IList<Priority>> GetAllPrioritiesAsync() => await context.Priorities.ToListAsync();
         public async Task<IList<Status>> GetAllStatusesAsync() => await context.Statuses.ToListAsync(); }
